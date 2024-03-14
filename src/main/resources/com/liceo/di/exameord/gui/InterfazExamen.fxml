@@ -14,11 +14,7 @@
     </HBox>
     <HBox alignment="CENTER">
         <Label text="CONTENIDO" />
-        <TextField fx:id="contenido" prefHeight="26.0" prefWidth="147.0" />
-    </HBox>
-    <HBox alignment="CENTER">
-        <Label text="FECHA" />
-        <TextField fx:id="fecha" prefHeight="26.0" prefWidth="147.0" />
+        <TextField fx:id="contenido" prefHeight="26.0" prefWidth="146.0" />
     </HBox>
 
     <Label fx:id="welcomeText" />

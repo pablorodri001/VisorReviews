@@ -9,7 +9,9 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.util.converter.LocalDateStringConverter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,7 +49,10 @@ public class InterfazExamenController {
     }*/
 
     public void onCrearButtonClick(ActionEvent actionEvent) {
-        Review reviewCreada=new Review(NombreAutor.getText(),contenido.getText());
+        DateTimeFormatter formato=DateTimeFormatter.ofPattern("yyyy-MM-DD");
+        LocalDate fechaActual= LocalDate.now();
+
+        Review reviewCreada=new Review(NombreAutor.getText(),contenido.getText(),fechaActual);
         fApp.addReview(reviewCreada);
         
     }

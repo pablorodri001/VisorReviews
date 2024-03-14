@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class AplicacionExamen extends Application {
     // You shoud place this line of code in the Class
     // where you like to use the FacadeApp
     FacadeApp fApp = FacadeApp.getAppInstance();
@@ -21,7 +21,7 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("InterfazExamen.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(AplicacionExamen.class.getResource("InterfazExamen.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Hello!");
         stage.setScene(scene);
