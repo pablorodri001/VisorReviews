@@ -8,13 +8,17 @@
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-    <HBox>
-            <Label text="Nombre" />
+    <HBox alignment="CENTER">
+            <Label text="NOMBRE" />
             <TextField fx:id="NombreAutor" />
     </HBox>
-    <HBox>
-        <Label text="Contenido" />
+    <HBox alignment="CENTER">
+        <Label text="CONTENIDO" />
         <TextField fx:id="contenido" prefHeight="26.0" prefWidth="147.0" />
+    </HBox>
+    <HBox alignment="CENTER">
+        <Label text="FECHA" />
+        <TextField fx:id="fecha" prefHeight="26.0" prefWidth="147.0" />
     </HBox>
 
     <Label fx:id="welcomeText" />
