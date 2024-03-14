@@ -65,12 +65,12 @@ public class Review {
 
     @Override
     public String toString() {
-        return "\nReview{" +
-                "author='" + author + '\'' +
-                ", text='" + text + '\'' +
-                ", datePublished=" + datePublished +
-                ", likes=" + likes +
-                ", dislikes=" + dislikes +
+        return "\nReview" +
+                "El autor es:'" + author + '\'' +
+                ", Reseña:" + text + '\'' +
+                ", Fecha de la Reseña:" + datePublished +
+                ", numero de likes:" + likes +
+                ", numero de dislikes=" + dislikes +
                 ", id=" + id +
                 "}";
     }
