@@ -93,6 +93,10 @@ public class InterfazExamenController  {
 
     }
 
-    public void onDislikeButtonClick(ActionEvent actionEvent) {
+    public void onDislikeButtonClick(ActionEvent actionEvent) throws InvalidIdReviewException {
+        Review reviewSeleccionada=(Review) listaComentarios.getSelectionModel().getSelectedItem();
+        int codigoValoracion=reviewSeleccionada.getId();
+        fApp.dislikeReview(codigoValoracion);
+        System.out.println("dislike hecho");
     }
 }
