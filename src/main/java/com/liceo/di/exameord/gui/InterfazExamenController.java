@@ -2,10 +2,11 @@ package com.liceo.di.exameord.gui;
 
 import com.liceo.di.exameord.review.Review;
 import com.liceo.di.exameord.facade.FacadeApp;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class InterfazExamenController {
     @FXML
     private Label welcomeText;
     // You should place this line of code in the Class
@@ -28,5 +29,12 @@ public class HelloController {
         System.out.println("--- Review List from Controller ---");
         System.out.println(fApp.getReviewList());
         System.out.println("---------------------------------");
+    }
+
+    public void onCrearButtonClick(ActionEvent actionEvent) {
+        
+    }
+
+    public void OnListarButtonClick(ActionEvent actionEvent) {
     }
 }
