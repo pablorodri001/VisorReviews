@@ -70,17 +70,18 @@ public class InterfazExamenController  {
     }
 
     public void OnListarButtonClick(ActionEvent actionEvent) {
-        comentarios=fApp.getReviewList();
-        for(Review re:comentarios){
-                listaComentarios.getItems().add(re);
-        }
-        listaComentarios.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                Review reviewSeleccionada= (Review) listaComentarios.getSelectionModel().getSelectedItem();
-                int codigoValoracion=reviewSeleccionada.getId();
+            comentarios=fApp.getReviewList();
+            for (Review re : comentarios) {
+                if(!listaComentarios.getItems().contains(re)){
+                    listaComentarios.getItems().add(re);
+                }
+                else{
+                    listaComentarios.refresh();
+                }
             }
-        });
+
+
+
 
     }
 
@@ -90,6 +91,8 @@ public class InterfazExamenController  {
         int codigoValoracion=reviewSeleccionada.getId();
         fApp.likeReview(codigoValoracion);
         System.out.println("like hecho");
+        listaComentarios.refresh();
+
 
     }
 
@@ -98,5 +101,7 @@ public class InterfazExamenController  {
         int codigoValoracion=reviewSeleccionada.getId();
         fApp.dislikeReview(codigoValoracion);
         System.out.println("dislike hecho");
+        listaComentarios.refresh();
+
     }
 }
