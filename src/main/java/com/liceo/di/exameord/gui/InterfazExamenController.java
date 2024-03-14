@@ -5,10 +5,14 @@ import com.liceo.di.exameord.facade.FacadeApp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class InterfazExamenController {
-    @FXML
-    private Label welcomeText;
+
+
     // You should place this line of code in the Class
     // where you like to use the FacadeApp
     FacadeApp fApp = FacadeApp.getAppInstance();
@@ -16,12 +20,15 @@ public class InterfazExamenController {
     // It doesn't matter where you place this code.
     // Controller, App or wherever you'll use it, always will be the same
     // with the same list of reviews
+    public ListView ListaComentarios;
+    public List<Review> comentarios=new ArrayList<>();
+    @FXML
+    private Label welcomeText;
 
     @FXML
     protected void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");
         // An example of how to use the FacadeApp
-
         fApp.addReview(new Review("Author Dummy Controller", "Review Dummy Controller"));
 
         // if you see the terminal, you can see the List is the same both in App and in Controller
@@ -36,5 +43,11 @@ public class InterfazExamenController {
     }
 
     public void OnListarButtonClick(ActionEvent actionEvent) {
+        comentarios=fApp.getReviewList();
+        for(Review re:comentarios){
+                ListaComentarios.getItems().add(re);
+
+        }
+
     }
 }

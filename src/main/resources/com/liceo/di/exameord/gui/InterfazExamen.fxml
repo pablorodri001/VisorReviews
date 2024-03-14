@@ -19,7 +19,7 @@
 
     <Label fx:id="welcomeText" />
     <Button onAction="#onCrearButtonClick" text="Crear" />
-   <ListView prefHeight="200.0" prefWidth="200.0" />
+   <ListView fx:id="ListaComentarios" prefHeight="200.0" prefWidth="200.0" />
    <Button mnemonicParsing="false" onAction="#OnListarButtonClick" text="listar" />
 
 </VBox>
