@@ -3,28 +3,35 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.liceo.di.exameord.gui.InterfazExamenController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
     <HBox alignment="CENTER">
-            <Label text="NOMBRE" />
+            <Label text="NOMBRE">
+         <font>
+            <Font name="AppleMyungjo Regular" size="13.0" />
+         </font></Label>
             <TextField fx:id="NombreAutor" />
     </HBox>
     <HBox alignment="CENTER">
-        <Label text="CONTENIDO" />
+        <Label text="CONTENIDO">
+         <font>
+            <Font name="AppleMyungjo Regular" size="13.0" />
+         </font></Label>
         <TextField fx:id="contenido" prefHeight="26.0" prefWidth="146.0" />
     </HBox>
 
     <Label fx:id="confirmacionCreacion" />
-    <Button onAction="#onCrearButtonClick" text="Crear" />
+    <Button onAction="#onCrearButtonClick" style="-fx-background-color: #FF04F7; -fx-text-fill: white;" text="Crear" />
    <ListView fx:id="listaComentarios" prefHeight="200.0" prefWidth="200.0" />
    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15">
       <children>
-         <Button mnemonicParsing="false" onAction="#onDislikeButtonClick" text="DISLIKE" />
-         <Button layoutX="98.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnListarButtonClick" text="LISTAR" />
-         <Button layoutX="127.0" layoutY="47.0" mnemonicParsing="false" onAction="#onLikeButtonClick" text="LIKE" />
+         <Button mnemonicParsing="false" onAction="#onDislikeButtonClick" style="-fx-background-color: #F44336; -fx-text-fill: white;" text="DISLIKE" />
+         <Button layoutX="98.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnListarButtonClick" style="-fx-background-color: #04FFD5; -fx-text-fill: white;" text="LISTAR" />
+         <Button layoutX="127.0" layoutY="47.0" mnemonicParsing="false" onAction="#onLikeButtonClick" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="LIKE" />
       </children></HBox>
     
 
