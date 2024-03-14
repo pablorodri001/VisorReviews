@@ -32,7 +32,6 @@ public class AplicacionExamen extends Application {
         System.out.println("--- Review List from App ---");
         System.out.println(fApp.getReviewList());
         System.out.println("--------------------------");
-
         // Now, you can see how to add a dummy review
         fApp.addReview(new Review("Author Dummy App", "Review Dummy App"));
         // if you see the terminal, you can see the List is the same both in App and in Controller

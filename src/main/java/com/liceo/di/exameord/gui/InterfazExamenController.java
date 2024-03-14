@@ -1,21 +1,29 @@
 package com.liceo.di.exameord.gui;
 
+import com.liceo.di.exameord.facade.InvalidIdReviewException;
 import com.liceo.di.exameord.review.Review;
 import com.liceo.di.exameord.facade.FacadeApp;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.util.converter.LocalDateStringConverter;
 
+import java.io.File;
+import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class InterfazExamenController {
+public class InterfazExamenController  {
 
     @FXML
     public TextField contenido;
@@ -23,6 +31,9 @@ public class InterfazExamenController {
     public TextField NombreAutor;
     @FXML
     public TextField fecha;
+    @FXML
+    public Label confirmacionCreacion;
+    private String[] valoraciones={"like","dislike"};
     // You should place this line of code in the Class
     // where you like to use the FacadeApp
     FacadeApp fApp = FacadeApp.getAppInstance();
@@ -31,7 +42,7 @@ public class InterfazExamenController {
     // Controller, App or wherever you'll use it, always will be the same
     // with the same list of reviews
     @FXML
-    public ListView ListaComentarios;
+    public ListView listaComentarios;
     public List<Review> comentarios=new ArrayList<>();
 
 
@@ -53,6 +64,7 @@ public class InterfazExamenController {
         LocalDate fechaActual= LocalDate.now();
 
         Review reviewCreada=new Review(NombreAutor.getText(),contenido.getText(),fechaActual);
+        confirmacionCreacion.setText("CREADO EL COMENTARIO E INSERTADO!!!");
         fApp.addReview(reviewCreada);
         
     }
@@ -60,9 +72,27 @@ public class InterfazExamenController {
     public void OnListarButtonClick(ActionEvent actionEvent) {
         comentarios=fApp.getReviewList();
         for(Review re:comentarios){
-                ListaComentarios.getItems().add(re);
-
+                listaComentarios.getItems().add(re);
         }
+        listaComentarios.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                Review reviewSeleccionada= (Review) listaComentarios.getSelectionModel().getSelectedItem();
+                int codigoValoracion=reviewSeleccionada.getId();
+            }
+        });
 
+    }
+
+
+    public void onLikeButtonClick(ActionEvent actionEvent) throws InvalidIdReviewException {
+        Review reviewSeleccionada=(Review) listaComentarios.getSelectionModel().getSelectedItem();
+        int codigoValoracion=reviewSeleccionada.getId();
+        fApp.likeReview(codigoValoracion);
+        System.out.println("like hecho");
+
+    }
+
+    public void onDislikeButtonClick(ActionEvent actionEvent) {
     }
 }
