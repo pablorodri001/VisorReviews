@@ -21,7 +21,7 @@
          <font>
             <Font name="AppleMyungjo Regular" size="13.0" />
          </font></Label>
-        <TextField fx:id="contenido" prefHeight="26.0" prefWidth="146.0" />
+        <TextField fx:id="contenido" prefHeight="26.0" prefWidth="147.0" />
     </HBox>
 
     <Label fx:id="confirmacionCreacion" />
